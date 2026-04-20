@@ -3,62 +3,660 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Fix-It Factory | Home Repair & Construction in Belen, NM</title>
-  <meta name="description" content="The Fix-It Factory provides home repair, maintenance, construction, and window and door installation services in Belen, New Mexico." />
-  <link rel="stylesheet" href="style.css" />
+  <title>The Fix-It Factory | Windows, Doors & Property Repair in Belen, NM</title>
+  <meta name="description" content="The Fix-It Factory provides window installation, door installation, repair, and property improvement services in Belen, New Mexico. Call (505) 435-5129 for local service." />
+  <style>
+    :root {
+      --primary: #0f3d2e;
+      --primary-dark: #0a2a20;
+      --accent: #f59e0b;
+      --accent-soft: #fff3d6;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --white: #ffffff;
+      --bg: #f6f8f7;
+      --card: #ffffff;
+      --border: #dbe4df;
+      --shadow: 0 18px 45px rgba(15, 61, 46, 0.10);
+      --shadow-hover: 0 25px 60px rgba(15, 61, 46, 0.16);
+      --radius: 22px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .topbar a {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(15, 61, 46, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), #185c46);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      line-height: 1.1;
+      color: var(--primary-dark);
+    }
+
+    .brand-text span {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover,
+    .btn:hover {
+      color: inherit;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0 70px;
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #eef5f1 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #8a5a00;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+    }
+
+    .hero h2 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--primary-dark);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-points span {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--primary-dark);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 34px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 170px;
+      height: 170px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .hero-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-item {
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .info-item span,
+    .info-item a {
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-head .tag {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+
+    .section-head h3 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.1;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--text-light);
+      font-size: 1.03rem;
+    }
+
+    .services-grid,
+    .why-grid,
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      color: #8a5a00;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--text-light);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-panel h4 {
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+    }
+
+    .about-panel p {
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      background: #f7faf8;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      border-radius: 30px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .cta h3 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.82);
+      max-width: 680px;
+    }
+
+    .cta-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .cta-box .btn-secondary {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border: none;
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h4 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      margin-bottom: 18px;
+    }
+
+    .contact-row {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-row span,
+    .contact-row a {
+      color: var(--primary-dark);
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #fbfcfb;
+      font-size: 1rem;
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    footer {
+      padding: 32px 0 40px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-wrap,
+      .cta,
+      .contact-grid,
+      .services-grid,
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 62px;
+      }
+
+      .hero-card,
+      .about-panel,
+      .contact-card,
+      .cta,
+      .card {
+        padding: 24px;
+      }
+
+      .topbar-inner,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn,
+      .nav-cta {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="topbar">
     <div class="container topbar-inner">
-      <div>Proudly serving Belen, NM and surrounding areas</div>
+      <div>Proudly serving Belen, NM and nearby areas</div>
       <div>Call today: <a href="tel:15054355129">(505) 435-5129</a></div>
     </div>
   </div>
 
   <header>
     <div class="container nav">
-      <a href="index.html" class="brand">
+      <a href="#home" class="brand">
         <div class="logo">FF</div>
         <div class="brand-text">
           <h1>The Fix-It Factory</h1>
-          <span>Repair • Maintenance • Construction</span>
+          <span>Windows • Doors • Repair • Installation</span>
         </div>
       </a>
+
       <nav>
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
       <a class="nav-cta" href="tel:15054355129">Call Now</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Trusted local service in Belen, New Mexico</div>
-          <h2>Repairs, maintenance, and construction work done right.</h2>
+          <div class="eyebrow">Local service in Belen, New Mexico</div>
+          <h2>Professional window and door installation with dependable local repair service.</h2>
           <p>
-            The Fix-It Factory helps homeowners and businesses in Belen, NM with dependable property repair, maintenance, and improvement services. From everyday fixes to specialty window and door installation work, the focus is simple: solid service and quality results.
+            The Fix-It Factory helps property owners in Belen, NM with professional window and door installation, replacement, repair, and property improvement services. Whether you need an upgraded entry door, replacement windows, or dependable fix-it work around your home or business, the goal is simple: quality results and honest local service.
           </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:15054355129">Call (505) 435-5129</a>
-            <a class="btn btn-secondary" href="contact.html">Request Service</a>
+            <a class="btn btn-secondary" href="#contact">Request Service</a>
           </div>
+
           <div class="hero-points">
-            <span>Home Repair</span>
-            <span>Property Maintenance</span>
-            <span>General Construction</span>
-            <span>Window & Door Work</span>
+            <span>Window Installation</span>
+            <span>Door Installation</span>
+            <span>Replacement & Repair</span>
+            <span>Property Improvement</span>
           </div>
         </div>
+
         <aside class="hero-card">
-          <h3>Your local fix-it team</h3>
-          <p>Practical help for residential and commercial property needs in Belen and nearby areas.</p>
+          <h3>Your local window and door team</h3>
+          <p>Professional help for window and door projects, repairs, and exterior improvements in the Belen area.</p>
           <div class="info-list">
             <div class="info-item">
               <strong>Phone</strong>
@@ -69,60 +667,118 @@
               <span>Belen, NM 87002</span>
             </div>
             <div class="info-item">
-              <strong>Specialty Focus</strong>
-              <span>Window and door installation</span>
+              <strong>Focus</strong>
+              <span>Window, door, and property improvement work</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section>
+    <section id="services">
       <div class="container">
         <div class="section-head">
-          <span class="tag">Featured Services</span>
-          <h3>One local company for the work your property needs most.</h3>
-          <p>The Fix-It Factory is built around helping customers keep homes and commercial spaces functional, safe, and looking their best.</p>
+          <span class="tag">Services</span>
+          <h3>Specialized window and door services with dependable repair support.</h3>
+          <p>
+            The Fix-It Factory is positioned as a trusted local provider for window and door projects, along with the repair and improvement work that helps homes and commercial properties stay secure, efficient, and looking their best.
+          </p>
         </div>
+
         <div class="services-grid">
           <article class="card">
             <div class="icon">🛠️</div>
-            <h4>General Repairs</h4>
-            <p>Reliable help with common repair issues around homes and commercial properties.</p>
+            <h4>Window Installation</h4>
+            <p>Professional window installation and replacement work to improve appearance, efficiency, comfort, and everyday function for homes and commercial properties.</p>
           </article>
+
           <article class="card">
             <div class="icon">🏠</div>
-            <h4>Property Maintenance</h4>
-            <p>Ongoing upkeep and improvement work to keep your space in good condition.</p>
+            <h4>Door Installation</h4>
+            <p>Entry, interior, and exterior door installation services designed to improve access, security, appearance, and overall property value.</p>
           </article>
+
           <article class="card">
             <div class="icon">🚪</div>
-            <h4>Window & Door Installation</h4>
-            <p>Specialty installation work designed to improve appearance, function, and efficiency.</p>
+            <h4>Window & Door Replacement</h4>
+            <p>Replacement solutions for worn, outdated, or damaged windows and doors, helping customers upgrade both curb appeal and performance.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔨</div>
+            <h4>Repair & Finish Work</h4>
+            <p>Dependable repair and finish work related to installations and property upkeep, helping projects look complete and professionally handled.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🏢</div>
+            <h4>Residential & Commercial Service</h4>
+            <p>Service for both homeowners and businesses in the Belen area, with a practical focus on doors, windows, repairs, and improvements.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📞</div>
+            <h4>Local, Direct Service</h4>
+            <p>Simple contact and a local presence make it easier for customers in Belen to reach out for quotes on window, door, and repair work.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container split-grid">
-        <div class="panel">
-          <span class="tag">Why Choose Us</span>
-          <h4>Local service with a broad skill set.</h4>
-          <p>Customers in Belen often want one dependable company they can call for repairs, maintenance, and improvement work without overcomplicating the process.</p>
+    <section id="about">
+      <div class="container about-wrap">
+        <div class="about-panel">
+          <span class="tag">About</span>
+          <h4>Built for the window, door, and improvement needs property owners run into most.</h4>
+          <p>
+            The Fix-It Factory serves Belen, New Mexico as a go-to option for window installation, door installation, replacement work, and related repair services. The business is geared toward helping customers improve both residential and commercial spaces with practical upgrades that matter.
+          </p>
+          <p>
+            Whether the need is replacing old windows, installing a new door, or handling related fix-it work around the property, the emphasis is on useful service, strong workmanship, and local support.
+          </p>
+        </div>
+
+        <div class="about-panel">
+          <span class="tag">What Customers Need Most</span>
+          <h4>Clean installs. Strong curb appeal. A local company that shows up.</h4>
           <ul class="check-list">
-            <li>Belen-based local service</li>
-            <li>Residential and commercial support</li>
-            <li>Flexible repair and project work</li>
-            <li>Simple scheduling by phone</li>
+            <li>Window and door installation for homes and businesses</li>
+            <li>Replacement solutions for worn or outdated openings</li>
+            <li>Service based in Belen, NM 87002</li>
+            <li>Easy scheduling by phone at (505) 435-5129</li>
           </ul>
         </div>
-        <div class="panel">
-          <span class="tag">About The Fix-It Factory</span>
-          <h4>Helping improve homes and businesses in the local area.</h4>
-          <p>The Fix-It Factory, LLC is positioned as a versatile service provider for construction, repair, and improvement needs in Belen, NM.</p>
-          <p>Whether the job is a straightforward fix or a more involved upgrade, the emphasis is on practical service and dependable results.</p>
-          <a class="btn btn-primary" href="about.html">Learn More</a>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Why Choose The Fix-It Factory</span>
+          <h3>Local service with a strong windows-and-doors focus.</h3>
+          <p>
+            Customers looking for a trusted local provider often want someone who can handle window and door projects professionally while still helping with the related repair work that keeps everything looking finished.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="card">
+            <div class="icon">📍</div>
+            <h4>Belen-based</h4>
+            <p>Rooted in the local area and positioned to help nearby homeowners and businesses with practical property needs.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">⚒️</div>
+            <h4>Window & door expertise</h4>
+            <p>From installation and replacement to related repair work, the service offering is centered around the upgrades customers notice most.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">✅</div>
+            <h4>Straightforward contact</h4>
+            <p>One easy phone number, one clear local provider, and a simple path for customers who want to get work scheduled.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -130,22 +786,71 @@
     <section>
       <div class="container">
         <div class="cta">
-          <div class="cta-grid">
-            <div>
-              <h3>Need help with a repair or project?</h3>
-              <p>Call The Fix-It Factory for local service in Belen, NM. A quick phone call is the easiest way to get started.</p>
+          <div>
+            <h3>Need new windows, doors, or repair help in Belen?</h3>
+            <p>
+              Reach out to The Fix-It Factory for window installation, door replacement, repair, and improvement services. Whether it is a home project or commercial job, a quick call is the easiest way to get started.
+            </p>
+          </div>
+          <div class="cta-box">
+            <div class="info-item" style="background: transparent; border-color: rgba(255,255,255,0.18); padding: 0 0 14px; border-radius: 0;">
+              <strong style="color: rgba(255,255,255,0.72);">Phone</strong>
+              <a href="tel:15054355129">(505) 435-5129</a>
             </div>
-            <div class="cta-box">
-              <div class="contact-row">
-                <strong>Phone</strong>
-                <a href="tel:15054355129">(505) 435-5129</a>
-              </div>
-              <div class="contact-row">
-                <strong>Location</strong>
-                <span>Belen, NM 87002</span>
-              </div>
-              <a class="btn btn-secondary" href="contact.html">Go to Contact Page</a>
+            <div class="info-item" style="background: transparent; border-color: rgba(255,255,255,0.18); padding: 14px 0 0; border-radius: 0;">
+              <strong style="color: rgba(255,255,255,0.72);">Location</strong>
+              <span>Belen, NM 87002</span>
             </div>
+            <a class="btn btn-secondary" href="tel:15054355129">Call for Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Contact</span>
+          <h3>Get in touch for window and door service.</h3>
+          <p>
+            Use the information below to reach The Fix-It Factory about window installation, door replacement, or repair work. You can also use the form as a website placeholder until you decide where you want submissions sent.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h4>Business Information</h4>
+
+            <div class="contact-row">
+              <strong>Business Name</strong>
+              <span>The Fix-It Factory, LLC</span>
+            </div>
+
+            <div class="contact-row">
+              <strong>Phone</strong>
+              <a href="tel:15054355129">(505) 435-5129</a>
+            </div>
+
+            <div class="contact-row">
+              <strong>Location</strong>
+              <span>Belen, NM 87002</span>
+            </div>
+
+            <div class="contact-row">
+              <strong>Services</strong>
+              <span>Window installation, door installation, replacement, repair, and property improvement</span>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h4>Request Service</h4>
+            <form>
+              <input type="text" name="name" placeholder="Your Name" />
+              <input type="tel" name="phone" placeholder="Phone Number" />
+              <input type="text" name="project" placeholder="Window, door, or repair project" />
+              <textarea name="message" placeholder="Tell us about the window, door, or repair work you need help with"></textarea>
+              <button class="btn btn-primary" type="submit">Send Request</button>
+            </form>
           </div>
         </div>
       </div>
@@ -154,8 +859,8 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© 2026 The Fix-It Factory. All rights reserved.</div>
-      <div>Serving Belen, NM 87002 and surrounding communities</div>
+      <div>© 2026 The Fix-It Factory. Windows, doors, and repair services.</div>
+      <div>Serving Belen, NM 87002 and surrounding areas</div>
     </div>
   </footer>
 </body>
